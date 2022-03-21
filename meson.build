@@ -23,10 +23,10 @@ third_party_path = 'third-party'
 git_exe = find_program('git')
 
 # {{{ Tree-Sitter
-tree_sitter = dependency('tree-sitter')
+tree_sitter = dependency('tree-sitter', required: false)
 if get_option('USE_BUNDLED_TREESITTER') or not tree_sitter.found()
   message('Use bundled tree-sitter')
-  tree_sitter_path =join_paths(third_party_path, 'tree-sitter') 
+  tree_sitter_path = join_paths(third_party_path, 'tree-sitter') 
   if not git_exe.found()
     error('Cannot use tree-sitter library. Install git, so it can be downloaded')
   endif
