@@ -1,0 +1,6 @@
+# Build objects
+build/
+third-party/
+
+# Temporal files
+.cache/
