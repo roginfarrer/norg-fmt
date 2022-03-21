@@ -8,7 +8,7 @@
 @end
 
 * norg-fmt
-  norg-fmt is a formatter for {https://github.com/nvim-neorg/neorg}[Neorg]. It is in a very early
+  norg-fmt is a formatter for [Neorg]{https://github.com/nvim-neorg/neorg}. It is in a very early
   stage right now and will be pushed to neorg organization once it is stable and working.
 
  ** Building from source
@@ -21,7 +21,7 @@
   *** Compatibility
       norg-fmt should work as expected for all platforms (Windows, Linux, MacOS), however if you
       find any issue when compiling/running it, please feel free to fill an
-      {https://github.com/NTBBloodbath/norg-fmt/issues/new}[issue].
+      [issue]{https://github.com/NTBBloodbath/norg-fmt/issues/new}.
 
     ---
     You can use our {@ Makefile} to compile norg-fmt, just run `make` in norg-fmt repository
@@ -36,7 +36,7 @@
     only print generated tree-sitter AST as a s-expression to stdout.
 
  ** License
-    norg-fmt is licensed under {./LICENSE}[GPLv3] license.
+    norg-fmt is licensed under [GPLv3]{./LICENSE} license.
 
 
 #comment
