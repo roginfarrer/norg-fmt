@@ -1,0 +1,6 @@
+[submodule "deps/tree-sitter-norg"]
+	path = deps/tree-sitter-norg
+	url = git@github.com:nvim-neorg/tree-sitter-norg.git
+[submodule "deps/zig-tree-sitter"]
+	path = deps/zig-tree-sitter
+	url = git@github.com:vhyrro/zig-tree-sitter.git

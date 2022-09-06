@@ -1,3 +1,0 @@
-option('USE_BUNDLED_TREESITTER', type : 'boolean', value : false,
-  description : 'Use bundled tree-sitter instead of system tree-sitter libraries')
-

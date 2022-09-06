@@ -1,6 +1,3 @@
-# Build objects
-build/
-third-party/
-
-# Temporal files
-.cache/
+# Build objects and cache
+zig-out
+zig-cache
