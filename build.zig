@@ -1,4 +1,5 @@
 const std = @import("std");
+const tree_sitter = @import("deps/zig-tree-sitter/build.zig");
 
 pub fn build(b: *std.build.Builder) void {
     const target = b.standardTargetOptions(.{});
@@ -8,12 +9,16 @@ pub fn build(b: *std.build.Builder) void {
     exe.use_stage1 = true;
     exe.setTarget(target);
     exe.setBuildMode(mode);
+
+    // add zig-tree-sitter dependency
     exe.addPackagePath("tree-sitter", "deps/zig-tree-sitter/src/lib.zig");
-    exe.linkLibC();
+    tree_sitter.linkTreeSitter(exe);
+    // tree-sitter-norg does use C and C++ so we need to link both.
+    // C one is already linked by zig-tree-sitter so we do not need to re-link it
     exe.linkLibCpp();
-    exe.addIncludeDir("deps/tree-sitter-norg/src/");
-    exe.addCSourceFile("deps/tree-sitter-norg/src/parser.c", &[_][]const u8 { "-std=c99" });
-    exe.addCSourceFile("deps/tree-sitter-norg/src/scanner.cc", &[_][]const u8 { "-std=c++14" });
+    exe.addIncludeDir("deps/tree-sitter-norg/src");
+    exe.addCSourceFile("deps/tree-sitter-norg/src/parser.c", &[_][]const u8{"-std=c99"});
+    exe.addCSourceFile("deps/tree-sitter-norg/src/scanner.cc", &[_][]const u8{"-std=c++14"});
     exe.install();
 
     const run_cmd = exe.run();

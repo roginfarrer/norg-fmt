@@ -1,43 +1,35 @@
-@document.meta
-  title: README
-  description: norg-fmt README
-  authors: NTBBloodbath
-  categories: neorg, formatter
-  created: 2022-03-21
-  version: 0.0.11
-@end
-
 * norg-fmt
   norg-fmt is a formatter for [Neorg]{https://github.com/nvim-neorg/neorg}. It is in a very early
   stage right now and will be pushed to neorg organization once it is stable and working.
 
- ** Building from source
-  *** Requirements
-      - GCC +10 / Clang +11
-      - GNU Make (optional yet highly recommended, used as a wrapper for meson commands and build options)
-      - Meson +0.53 (build system)
-      - Tree-Sitter (optional, can be bundled during compilation)
-
-  *** Compatibility
-      norg-fmt should work as expected for all platforms (Windows, Linux, MacOS), however if you
-      find any issue when compiling/running it, please feel free to fill an
-      [issue]{https://github.com/NTBBloodbath/norg-fmt/issues/new}.
+** Building from source
+*** Requirements
+    - `Zig` >= 0.10
 
     ---
-    You can use our {@ Makefile} to compile norg-fmt, just run `make` in norg-fmt repository
-    directory and Make will handle everything for you. Produced `norg-fmt` binary should be under
-    `build/` directory if everything goes well.
 
-    By default, our Makefile generates debugging builds of norg-fmt, to generate a build for
-    production (with optimizations) you should pass `release=1` variable to make call.
+   Now that you've checked for requirements you can proceed to build `norg-fmt`:
+   @code bash
+   git clone --depth 1 https://github.com/NTBBloodbath/norg-fmt.git
+   cd norg-fmt
+   git submodule update --init --recursive --progress
+   zig build -Drelease-safe
+   @end
 
- ** Usage
-    For now, just run `norg-fmt norg-file.norg`. It is not fully working at the moment so it will
-    only print generated tree-sitter AST as a s-expression to stdout.
+   *NOTE*: Produced binary is under `zig-out/bin` directory.
 
- ** License
-    norg-fmt is licensed under [GPLv3]{./LICENSE} license.
+*** Compatibility
+    norg-fmt should work as expected for all platforms (Windows, Linux, MacOS), however if you
+    find any issue when compiling/running it, please feel free to fill an
+    [issue]{https://github.com/NTBBloodbath/norg-fmt/issues/new}.
+
+** Usage
+
+   Nothing here but chickens ...
+** License
+   norg-fmt is licensed under [GPLv3]{./LICENSE} license.
 
 
-#comment
-vim:sw=2:ts=2:cole=3:cocu=n:tw=100:norl:nofen:
+@comment
+vim:sw=2:ts=2:cole=3:cocu=n:tw=100:norl:nofen
+@end
