@@ -4,3 +4,6 @@
 [submodule "deps/zig-tree-sitter"]
 	path = deps/zig-tree-sitter
 	url = git@github.com:vhyrro/zig-tree-sitter.git
+[submodule "deps/zig-clap"]
+	path = deps/zig-clap
+	url = git@github.com:Hejsil/zig-clap.git

@@ -2,11 +2,15 @@ const std = @import("std");
 const tree_sitter = @import("deps/zig-tree-sitter/build.zig");
 
 fn linkDependencies(exe: *std.build.LibExeObjStep) void {
-    // add zig-tree-sitter dependency
+    // zig-clap
+    exe.addPackagePath("clap", "deps/zig-clap/clap.zig");
+
+    // zig-tree-sitter
     exe.addPackagePath("tree-sitter", "deps/zig-tree-sitter/src/lib.zig");
     tree_sitter.linkTreeSitter(exe);
+
     // tree-sitter-norg does use C and C++ so we need to link both.
-    // C one is already linked by zig-tree-sitter so we do not need to re-link it
+    // C stdlib is already linked by zig-tree-sitter so we do not need to re-link it
     exe.linkLibCpp();
     exe.addIncludeDir("deps/tree-sitter-norg/src");
     exe.addCSourceFile("deps/tree-sitter-norg/src/parser.c", &[_][]const u8{"-std=c99"});
