@@ -1,16 +1,17 @@
 * norg-fmt
   norg-fmt is a formatter for [Neorg]{https://github.com/nvim-neorg/neorg}. It is in a very early
-  stage right now and will be pushed to neorg organization once it is stable and working.
+  stage right now.
 
 ** Building from source
 *** Requirements
     - `Zig` >= 0.10
+    - C/C++ compiler
 
     ---
 
    Now that you've checked for requirements you can proceed to build `norg-fmt`:
    @code bash
-   git clone --depth 1 https://github.com/NTBBloodbath/norg-fmt.git
+   git clone --depth=1 https://github.com/NTBBloodbath/norg-fmt.git
    cd norg-fmt
    git submodule update --init --recursive --progress
    zig build -Drelease-safe
@@ -26,6 +27,7 @@
 ** Usage
 
    Nothing here but chickens ...
+
 ** License
    norg-fmt is licensed under [GPLv3]{./LICENSE} license.
 
