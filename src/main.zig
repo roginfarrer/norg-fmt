@@ -1,6 +1,6 @@
 const std = @import("std");
 const clap = @import("clap");
-const tree_sitter = @import("tree-sitter");
+const ts = @import("tree-sitter");
 
 const version = "0.1.0a";
 const copyright_notice =
@@ -21,7 +21,7 @@ const copyright_notice =
     \\
 ;
 
-extern fn tree_sitter_norg() tree_sitter.TSLanguage;
+extern fn tree_sitter_norg() ts.TSLanguage;
 
 pub fn main() !void {
     // Standard output/err
@@ -80,11 +80,19 @@ pub fn main() !void {
             else => return err,
         };
 
-        std.debug.print("{s}", .{file_contents});
+        const language = ts.Language.from(tree_sitter_norg());
+        const parser = try ts.Parser.init(language);
+        defer parser.deinit();
+
+        const tree = try parser.parse_string(file_contents, .UTF8, null);
+        defer tree.deinit();
+
+        var root = tree.root();
+        std.debug.print("{s}", .{root.type()});
     }
 }
 
 test "Load Norg parser" {
-    var norg_parser = tree_sitter.Language.from(tree_sitter_norg());
+    var norg_parser = ts.Language.from(tree_sitter_norg());
     try std.testing.expectEqual(norg_parser.version(), 13);
 }
