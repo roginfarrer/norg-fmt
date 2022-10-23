@@ -12,7 +12,7 @@ fn linkDependencies(exe: *std.build.LibExeObjStep) void {
     // tree-sitter-norg does use C and C++ so we need to link both.
     // C stdlib is already linked by zig-tree-sitter so we do not need to re-link it
     exe.linkLibCpp();
-    exe.addIncludeDir("deps/tree-sitter-norg/src");
+    exe.addIncludePath("deps/tree-sitter-norg/src");
     exe.addCSourceFile("deps/tree-sitter-norg/src/parser.c", &[_][]const u8{"-std=c99"});
     exe.addCSourceFile("deps/tree-sitter-norg/src/scanner.cc", &[_][]const u8{"-std=c++14"});
 }
