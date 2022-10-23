@@ -88,7 +88,7 @@ pub fn main() !void {
         defer tree.deinit();
 
         var root = tree.root();
-        std.debug.print("{s}", .{root.type()});
+        try stdout.print("{s}\n", .{root.type()});
     }
 }
 
