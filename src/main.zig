@@ -94,5 +94,5 @@ pub fn main() !void {
 
 test "Load Norg parser" {
     var norg_parser = ts.Language.from(tree_sitter_norg());
-    try std.testing.expectEqual(norg_parser.version(), 13);
+    try std.testing.expectEqual(norg_parser.version(), 14);
 }
