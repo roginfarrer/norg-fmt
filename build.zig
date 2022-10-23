@@ -5,6 +5,9 @@ fn linkDependencies(exe: *std.build.LibExeObjStep) void {
     // zig-clap
     exe.addPackagePath("clap", "deps/zig-clap/clap.zig");
 
+    // known-folders
+    exe.addPackagePath("known-folders", "deps/known-folders/known-folders.zig");
+
     // zig-tree-sitter
     exe.addPackagePath("tree-sitter", "deps/zig-tree-sitter/src/lib.zig");
     tree_sitter.linkTreeSitter(exe);
