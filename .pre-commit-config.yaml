@@ -1,0 +1,17 @@
+default_stages: [commit, push]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: check-yaml
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+        exclude: LICENSE
+
+  - repo: https://github.com/batmac/pre-commit-zig
+    rev: v0.3.0
+    hooks:
+      - id: zig-fmt
+      - id: zig-build
+      - id: zig-build-test
